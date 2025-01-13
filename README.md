@@ -18,7 +18,7 @@ This script generates a partial k-tree. The user can also perturb the graph by a
 To run the script, use the following command in your terminal:
 
 ```bash
-python generate_k_tree.py -n NUM_VERTICES -w WIDTH -o OUTPUT_FILE [-s SEED] [-r REMOVE_PROBABILITY] [-a ADD_PROBABILITY]
+python main.py -n NUM_VERTICES -w WIDTH -o OUTPUT_FILE [-s SEED] [-r REMOVE_PROBABILITY] [-a ADD_PROBABILITY]
 ```
 
 ### Parameters
@@ -46,7 +46,7 @@ python generate_k_tree.py -n NUM_VERTICES -w WIDTH -o OUTPUT_FILE [-s SEED] [-r 
 ### Example 1: Basic usage with default values
 
 ```bash
-python generate_k_tree.py -n 10 -w 3 -o graph.gr
+python main.py -n 10 -w 3 -o graph.gr
 ```
 
 This generates a k-tree with 10 vertices and a width of 3, and saves it to `graph.gr`.
@@ -54,7 +54,7 @@ This generates a k-tree with 10 vertices and a width of 3, and saves it to `grap
 ### Example 2: Adding and removing edges with a seed
 
 ```bash
-python generate_k_tree.py -n 15 -w 4 -o graph.gr -s 42 -r 0.2 -a 0.3
+python main.py -n 15 -w 4 -o graph.gr -s 42 -r 0.2 -a 0.3
 ```
 
 This generates a k-tree with 15 vertices, a width of 4, a random seed of `42`, a 20% chance of removing edges, and a 30% chance of adding edges. The graph will be saved to `graph.gr`.
