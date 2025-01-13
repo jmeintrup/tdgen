@@ -46,22 +46,22 @@ python generate_k_tree.py -n NUM_VERTICES -w WIDTH -o OUTPUT_FILE [-s SEED] [-r 
 ### Example 1: Basic usage with default values
 
 ```bash
-python generate_k_tree.py -n 10 -w 3 -o graph_output.txt
+python generate_k_tree.py -n 10 -w 3 -o graph.gr
 ```
 
-This generates a k-tree with 10 vertices and a width of 3, and saves it to `graph_output.txt`.
+This generates a k-tree with 10 vertices and a width of 3, and saves it to `graph.gr`.
 
 ### Example 2: Adding and removing edges with a seed
 
 ```bash
-python generate_k_tree.py -n 15 -w 4 -o perturbed_graph.txt -s 42 -r 0.2 -a 0.3
+python generate_k_tree.py -n 15 -w 4 -o graph.gr -s 42 -r 0.2 -a 0.3
 ```
 
-This generates a k-tree with 15 vertices, a width of 4, a random seed of `42`, a 20% chance of removing edges, and a 30% chance of adding edges. The graph will be saved to `perturbed_graph.txt`.
+This generates a k-tree with 15 vertices, a width of 4, a random seed of `42`, a 20% chance of removing edges, and a 30% chance of adding edges. The graph will be saved to `graph.gr`.
 
 ## Output Format
 
-The script outputs a simple text file where the first line contains the number of vertices and edges, followed by each edge in the format:
+The script outputs a simple text file where the first line contains the number of vertices and edges, followed by each edge in the format. This is also known as the `.gr` format:
 
 ```
 NUM_VERTICES NUM_EDGES
