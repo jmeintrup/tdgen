@@ -11,7 +11,7 @@ Before running the script, make sure you have Python and the necessary packages 
 
 ## Script Overview
 
-This script generates a partial k-tree, which is a graph where every subset of `k+1` vertices forms a clique. The user can also perturb the graph by adding or removing edges with a specified probability. The resulting graph is saved in a `.txt` format that lists the edges.
+This script generates a partial k-tree. The user can also perturb the graph by adding or removing edges with a specified probability. The resulting graph is saved in a `.txt` format that lists the edges.
 
 ## Usage
 
