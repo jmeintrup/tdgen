@@ -25,22 +25,22 @@ def main():
 
     random.seed(args.seed)
 
-    k_cliques=[]
+    cliques=[]
 
     for u in range(n):
-        clique = [v for v in range(n) if v is not u]
-        k_cliques.append(clique)
+        clique = [v for v in range(k+1) if v is not u]
+        cliques.append(clique)
 
     for u in range(k+1, n):
-        i = random.randint(0, len(k_cliques)-1)
-        clique = k_cliques[i][:]
+        i = random.randint(0, len(cliques)-1)
+        clique = cliques[i][:]
         j = random.randint(0, len(clique)-1)
         clique[j] = u
-        k_cliques.append(clique)
+        cliques.append(clique)
 
     G = nx.empty_graph(n)
 
-    for clique in k_cliques:
+    for clique in cliques:
         for u in clique:
             for v in clique:
                 if u < v:
@@ -62,7 +62,7 @@ def main():
     with open(args.output, 'w') as f:
         f.write(f"{len(G.nodes())} {len(G.edges())}\n")
         for u, v in G.edges():
-            f.write(f"{u} {v}\n")
+            f.write(f"{u+1} {v+1}\n")
 
 if __name__ == "__main__":
     main()
