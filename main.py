@@ -32,8 +32,9 @@ def main():
         cliques.add(clique)
 
     for u in range(k+1, n):
+        retries = 100
         found = False
-        while not found:
+        while retries > 0:
             clique = list(random.choice(tuple(cliques)))
             i = random.randint(0, len(clique)-1)
             clique[i] = u
@@ -41,6 +42,11 @@ def main():
             if clique not in cliques:
                 cliques.add(clique)
                 found = True
+                break
+            retries=retries-1
+        if not found:
+            raise ValueError("Failed to find new clique after 100 samples.")
+
 
     G = nx.empty_graph(n)
 
