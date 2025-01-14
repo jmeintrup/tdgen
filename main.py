@@ -25,21 +25,26 @@ def main():
 
     random.seed(args.seed)
 
-    cliques=[]
+    cliques=set()
 
     for u in range(n):
-        clique = [v for v in range(k+1) if v is not u]
-        cliques.append(clique)
+        clique = frozenset([v for v in range(k+1) if v is not u])
+        cliques.add(clique)
 
     for u in range(k+1, n):
-        i = random.randint(0, len(cliques)-1)
-        clique = cliques[i][:]
-        j = random.randint(0, len(clique)-1)
-        clique[j] = u
-        cliques.append(clique)
+        found = False
+        while not found:
+            clique = list(random.choice(tuple(cliques)))
+            i = random.randint(0, len(clique)-1)
+            clique[i] = u
+            clique = frozenset(clique)
+            if clique not in cliques:
+                cliques.add(clique)
+                found = True
 
     G = nx.empty_graph(n)
 
+    cliques = [list(clique) for clique in cliques]
     for clique in cliques:
         for u in clique:
             for v in clique:
